@@ -1,0 +1,13 @@
+# DB Browser for SQLite local session files
+*.sqbpro
+*.sqbpro-shm
+*.sqbpro-wal
+
+# SQLite transient files
+*.db-shm
+*.db-wal
+*.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
