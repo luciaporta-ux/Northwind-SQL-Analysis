@@ -14,7 +14,7 @@ This document maps the repository's queries to the analytical SQL techniques dem
 | Customer segmentation | `06_analisis_clientes.sql` | Classify customers by days since their most recent order. |
 | Pareto analysis | `06_analisis_clientes.sql` | Identify customers that make up the first 80% of cumulative revenue. |
 | Ranking within groups | `10_analisis_avanzado.sql` | Find top products within category and top customers within country. |
-| Conditional logic | `02_calidad_datos.sql`, `06_analisis_clientes.sql`, `09_descuentos.sql` | Apply business rules with `CASE`. |
+| Conditional logic | `02_calidad_datos.sql`, `06_analisis_clientes.sql`, `09_analisis_descuentos.sql` | Apply business rules with `CASE`. |
 
 ## Query Design Principles Used
 
