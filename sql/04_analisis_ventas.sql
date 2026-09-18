@@ -11,7 +11,7 @@ Select count(Distinct CustomerID) from Orders;
 
 Select AVG(Ingreso) as Valor_Promedio from (Select OrderID,
 SUM(UnitPrice*Quantity*(1-Discount)) as "Ingreso"
-from "Order Details"
+from "Order Details" 
 group by OrderID);
 
 --Evolución del Revenue por año
@@ -28,7 +28,7 @@ group by strftime('%Y-%m',OrderDate);
 
 --Comparacion intermensual de ingresos
 
-With Ingresos as (Select strftime('%Y-%m',OrderDate) as "Mes_Año", SUM(UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od
+With Ingresos as (Select strftime('%Y-%m',OrderDate) as "Mes_Año", SUM(UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od 
 join orders o on od.OrderID = o.OrderID
 group by strftime('%Y-%m',OrderDate) )
 Select Mes_Año,Monto, LAG(Monto) OVER(Order by Mes_Año) as Monto_anterior, Monto -  LAG(Monto) OVER(Order by Mes_Año) as Diferencia,
@@ -36,8 +36,9 @@ Select Mes_Año,Monto, LAG(Monto) OVER(Order by Mes_Año) as Monto_anterior, Mon
 from Ingresos;
 
 --Comparacion interanual de ingresos
+
 With ingresos as (Select strftime('%Y',OrderDate) as "Año", SUM(UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od
-join orders o on od.OrderID = o.OrderID
+join orders o on od.OrderID = o.OrderID 
 group by strftime('%Y',OrderDate))
-Select Año,Monto,Lag(Monto) over(Order by Año) as Monto_año_anterior, Monto-Lag(Monto) over(Order by Año) as Diferencia,
+Select Año,Monto,Lag(Monto) over(Order by Año) as Monto_año_anterior, Monto-Lag(Monto) over(Order by Año) as Diferencia, 
 (Monto-Lag(Monto) over(Order by Año))/Lag(Monto) over(Order by Año) * 100 as Diferencia_porcentual from ingresos;

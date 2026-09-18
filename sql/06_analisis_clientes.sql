@@ -28,10 +28,10 @@ Select CustomerID,AVG (Monto) from Montos group by CustomerID ;
 --Clasificacion de clientes segun días de ultima compra
 
 With clientes_fecha as (Select CustomerID, max(OrderDate) as ultima_fecha from Orders
-group by CustomerID), dias_ultima_compra as (Select CustomerID,ultima_fecha,
+group by CustomerID), dias_ultima_compra as (Select CustomerID,ultima_fecha, 
 julianday((Select max(OrderDate) from Orders))- julianday(ultima_fecha) as dias from clientes_fecha)
 Select CustomerID,ultima_fecha,dias,
-CASE
+CASE 
 WHEN dias >= 100 then 'Inactivo'
 when dias >= 40 then 'En seguimiento'
 else 'Activo' end as "Recencia clientes"

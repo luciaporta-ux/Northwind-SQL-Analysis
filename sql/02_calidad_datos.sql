@@ -43,14 +43,17 @@ on os.ProductID= p.ProductID
 where p.ProductID IS NULL;
 
 --Compruebo si existen precios o cantidades menores o iguales a 0
+
 Select UnitPrice,Quantity from "Order Details"
 where UnitPrice <= 0 or Quantity <= 0;
 
 --Selecciono maximos y minimos precios, cantidades y descuentos
+
 Select min(UnitPrice),max(UnitPrice),min(Quantity),max(Quantity),min(Discount),max(Discount)
 from "Order Details";
 
 --Selecciono valores de Categorias y Territorios diferentes
+
 Select distinct CategoryName from Categories;
 Select distinct RegionID from Territories;
 

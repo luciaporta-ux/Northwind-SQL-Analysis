@@ -16,6 +16,7 @@ Order by Cantidad DESC
 LIMIT 10;
 
 --5 categorias con mayor Ingreso
+
 Select c.CategoryName, SUM(od.UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od
 join Products p on od.ProductID = p.ProductID
 join Categories c on p.CategoryID = c.CategoryID
@@ -33,7 +34,7 @@ Select CategoryName, Monto, Monto/Sum(Monto) OVER () * 100 as Porcentaje from Mo
 
 --Precio Promedio de Productos de c/Categoria
 
-Select CategoryName, AVG(UnitPrice) as Promedio from
+Select CategoryName, AVG(UnitPrice) as Promedio from 
 Products p
 join Categories c on p.CategoryID = c.CategoryID
 group by CategoryName;

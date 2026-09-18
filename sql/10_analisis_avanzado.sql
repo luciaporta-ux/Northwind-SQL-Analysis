@@ -10,7 +10,6 @@ Select * from Ranking_productos where Puntuacion = 1;
 
 --Cliente con + Ingreso de cada pais
 
-
 With Paises_Clientes as (Select c.CustomerID,c.Country,c.ContactName,SUM(od.UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od
 join Orders o on od.OrderID= o.OrderID
 join Customers c on c.CustomerID = o.CustomerID
@@ -43,7 +42,7 @@ Select Mes_año,CategoryName,Monto from Montos_Categorias order by CategoryName,
 
 --Promedio Movil de 3 meses
 
-With Ingresos as (Select strftime('%Y-%m',OrderDate) as "Mes_Año", SUM(UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od
+With Ingresos as (Select strftime('%Y-%m',OrderDate) as "Mes_Año", SUM(UnitPrice*Quantity*(1-Discount)) as "Monto" from "Order Details" od 
 join orders o on od.OrderID = o.OrderID
 group by strftime('%Y-%m',OrderDate) )
 Select Mes_Año,Monto, AVG(Monto) over (Order by Mes_Año rows between 2 preceding and current row) as Promedio_Movil_3_Meses
