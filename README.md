@@ -53,13 +53,19 @@ Recomiendo empezar por `01_exploracion.sql` y seguir el orden numérico.
 ## SQL que practiqué
 
 - `SELECT`, `WHERE`, `GROUP BY`, `HAVING` y `ORDER BY`
-- `JOIN` entre varias tablas
-- Subconsultas y CTEs
-- Agregaciones: `SUM`, `AVG`, `COUNT`
-- `CASE`
-- Funciones de ventana: `LAG`, `DENSE_RANK`, `ROW_NUMBER`
+- `DISTINCT`, `LIMIT` y `COUNT(DISTINCT ...)`
+- `JOIN` y `LEFT JOIN` entre varias tablas
+- Subconsultas y `CTEs`
+- Agregaciones: `SUM`, `AVG`, `COUNT`, `MIN` y `MAX`
+- `CASE` para clasificar datos
+- Funciones de ventana: `LAG`, `DENSE_RANK`, `ROW_NUMBER`, `SUM() OVER()` y `AVG() OVER()`
+- `PARTITION BY` y marcos de ventana con `ROWS BETWEEN`
+- Rankings, acumulados, análisis `Pareto` y promedio móvil
 - Cálculos de ventas con precio, cantidad y descuento
-- Análisis temporal con `strftime()`
+- Cálculo de porcentajes y manejo de división por cero con `NULLIF()`
+- Análisis temporal con `strftime()` y `julianday()`
+- Validación de calidad de datos: nulos, duplicados, valores inválidos y registros sin relación
+- Exploración de estructura en SQLite con `PRAGMA`
 
 ## Sobre los datos
 
